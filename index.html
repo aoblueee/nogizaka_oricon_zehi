@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乃木坂46 42nd Single『是非に及ばず』売上速報</title>
+  <style>
+    :root {
+      --nogi-purple: #742582;
+      --nogi-purple-dark: #4a1554;
+      --nogi-purple-light: #f3e8f5;
+      --nogi-gold: #d4af37;
+      --bg-color: #f7f4f9;
+      --text-main: #2c2c2c;
+      --text-sub: #666666;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+      background-color: var(--bg-color);
+      margin: 0;
+      padding: 24px 12px;
+      color: var(--text-main);
+    }
+
+    .card {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(116, 37, 130, 0.08);
+      overflow: hidden;
+      border: 1px solid #eee1f0;
+    }
+
+    /* ヘッダー */
+    .header {
+      background: linear-gradient(135deg, var(--nogi-purple) 0%, var(--nogi-purple-dark) 100%);
+      color: #ffffff;
+      padding: 32px 24px 24px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .title {
+      font-size: 26px;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: 0.04em;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #e8d5ec;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .gold-line {
+      width: 50px;
+      height: 3px;
+      background: var(--nogi-gold);
+      margin: 18px auto 0;
+      border-radius: 2px;
+    }
+
+    .content {
+      padding: 28px 24px;
+    }
+
+    /* ハイライトボックス */
+    .summary-box {
+      background: #fcf6fd;
+      border: 1px solid #e2cbe6;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+    }
+
+    .summary-title {
+      font-weight: 700;
+      color: var(--nogi-purple);
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .summary-text {
+      font-size: 14px;
+      line-height: 1.75;
+      margin: 0;
+      color: #444;
+    }
+
+    .highlight {
+      color: var(--nogi-purple);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    /* セクション見出し */
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #222;
+      margin: 32px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background: var(--nogi-purple);
+      border-radius: 2px;
+    }
+
+    /* 棒グラフ */
+    .chart-container {
+      background: #faf8fb;
+      border: 1px solid #f0e2f3;
+      border-radius: 12px;
+      padding: 20px 16px;
+      margin-bottom: 28px;
+    }
+
+    .chart-row {
+      margin-bottom: 14px;
+    }
+
+    .chart-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .chart-label-group {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .chart-label {
+      color: var(--text-main);
+    }
+
+    .chart-value {
+      color: var(--nogi-purple);
+    }
+
+    .chart-track {
+      background: #e8dedd;
+      height: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .chart-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #a855b7 0%, var(--nogi-purple) 100%);
+      border-radius: 10px;
+      transition: width 0.8s ease-in-out;
+    }
+
+    .chart-row.current .chart-label {
+      color: var(--nogi-purple);
+      font-weight: 700;
+    }
+
+    .chart-row.current .chart-value {
+      color: var(--nogi-purple);
+      font-weight: 700;
+    }
+
+    .chart-row.current .chart-bar {
+      background: linear-gradient(90deg, #c053db 0%, #742582 100%);
+      box-shadow: 0 0 8px rgba(116, 37, 130, 0.4);
+    }
+
+    /* テーブル */
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 10px;
+      border: 1px solid #ebd8f0;
+      margin-bottom: 28px;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .table th {
+      background: var(--nogi-purple);
+      color: #ffffff;
+      padding: 12px 10px;
+      font-weight: 600;
+    }
+
+    .table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #f2e6f5;
+      color: #444;
+    }
+
+    .table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .table tr.current {
+      background: #f7e8f9;
+      font-weight: 700;
+    }
+
+    .table tr.current td {
+      color: var(--nogi-purple);
+    }
+
+    /* 分析カード */
+    .point-card {
+      background: #faf8fb;
+      border-left: 4px solid var(--nogi-purple);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      border-top: 1px solid #f2e6f5;
+      border-right: 1px solid #f2e6f5;
+      border-bottom: 1px solid #f2e6f5;
+    }
+
+    .point-head {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--nogi-purple);
+      margin-bottom: 4px;
+    }
+
+    .point-body {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* フッター */
+    .footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 11px;
+      color: var(--text-sub);
+      background: #fcf8fd;
+      border-top: 1px solid #f2e6f5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    
+    <!-- ヘッダー -->
+    <div class="header">
+      <div class="badge">NOGIZAKA46 42nd SINGLE</div>
+      <h1 class="title">『是非に及ばず』</h1>
+      <div class="subtitle">センター：一ノ瀬美空 ｜ フラゲ日売上速報</div>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="content">
+      
+      <!-- サマリー -->
+      <div class="summary-box">
+        <div class="summary-title">✦ フラゲ日売上トピックス</div>
+        <p class="summary-text">
+          2026年7月21日（店着日）の集計にて、オリコンデイリー<span class="highlight">約40.1万枚</span>（1位）を記録！<br>
+          Billboard JAPAN先ヨミ速報では<span class="highlight">60.2万枚</span>を突破し、<strong>4作連続のフラゲ日ハーフミリオン</strong>を達成しました。
+        </p>
+      </div>
+
+      <!-- 比較グラフ -->
+      <div class="section-title">Billboard JAPAN 初日速報比較（万枚）</div>
+      <div class="chart-container">
+        
+        <div class="chart-row current">
+          <div class="chart-label-group">
+            <span class="chart-label">42nd『是非に及ばず』</span>
+            <span class="chart-value">60.2万枚</span>
+          </div>
+          <div class="chart-track">
+            <div class="chart-bar" style="width: 99.6%;"></div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="chart-label-group">
+            <span class="chart-label">41st『最後に階段を…』</span>
+            <span class="chart-value">58.5万枚</span>
+          </div>
+          <div class="chart-track">
+            <div class="chart-bar" style="width: 96.8%;"></div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="chart-label-group">
+            <span class="chart-label">40th『歩道橋』</span>
+            <span class="chart-value">56.2万枚</span>
+          </div>
+          <div class="chart-track">
+            <div class="chart-bar" style="width: 93.0%;"></div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="chart-label-group">
+            <span class="chart-label">39th『チートデイ』</span>
+            <span class="chart-value">52.0万枚</span>
+          </div>
+          <div class="chart-track">
+            <div class="chart-bar" style="width: 86.0%;"></div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="chart-label-group">
+            <span class="chart-label">31st『ここにはないもの』</span>
+            <span class="chart-value">60.4万枚</span>
+          </div>
+          <div class="chart-track">
+            <div class="chart-bar" style="width: 100%;"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 詳細比較テーブル -->
+      <div class="section-title">詳細売上データ比較</div>
+      <div class="table-wrapper">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>シングル</th>
+              <th>発売時期</th>
+              <th>オリコン初日</th>
+              <th>Billboard初日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="current">
+              <td>42nd『是非に及ばず』</td>
+              <td>2026/07</td>
+              <td>約40.1万枚</td>
+              <td>60.2万枚</td>
+            </tr>
+            <tr>
+              <td>41st『最後に階段を…』</td>
+              <td>2026/03</td>
+              <td>約41.2万枚</td>
+              <td>約58.5万枚</td>
+            </tr>
+            <tr>
+              <td>40th『歩道橋』</td>
+              <td>2025/12</td>
+              <td>約41.8万枚</td>
+              <td>約56.2万枚</td>
+            </tr>
+            <tr>
+              <td>39th『チートデイ』</td>
+              <td>2025/08</td>
+              <td>約39.5万枚</td>
+              <td>約52.0万枚</td>
+            </tr>
+            <tr>
+              <td>31st『ここにはないもの』</td>
+              <td>2022/12</td>
+              <td>約48.9万枚</td>
+              <td>約60.4万枚</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 分析ポイント -->
+      <div class="section-title">売上分析のポイント</div>
+      
+      <div class="point-card">
+        <div class="point-head">1. Billboard速報は近年最高クラスの勢い</div>
+        <div class="point-body">オリコンの初日実売では約40万枚ベースをしっかり維持。Billboard速報では60.2万枚に達し、前年の夏曲（『チートデイ』）を大きく上回る強いスタートを切っています。</div>
+      </div>
+
+      <div class="point-card">
+        <div class="point-head">2. 一ノ瀬美空さん初センターの話題性</div>
+        <div class="point-body">5期生・一ノ瀬美空さんの初表題曲センター就任に伴う注目度が高く、店舗・EC予約・イベント需要双方の強い初動購買力に繋がっています。</div>
+      </div>
+
+      <div class="point-card">
+        <div class="point-head">3. 4作連続ハーフミリオンの盤石な基盤</div>
+        <div class="point-body">40th『歩道橋』から続くフラゲ日ハーフミリオン（Billboard基準）を今作でも達成。グループとしての盤石な人気と熱量を改めて証明する結果となりました。</div>
+      </div>
+
+    </div>
+
+    <!-- フッター -->
+    <div class="footer">
+      ※売上データはオリコンデイリーランキングおよびBillboard JAPAN速報値を参照
+    </div>
+
+  </div>
+
+</body>
+</html>
