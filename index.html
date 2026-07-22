@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>乃木坂46 42nd Single『是非に及ばず』売上速報</title>
+  <title>乃木坂46 42nd Single『是非に及ばず』売上速報 & 特集</title>
   <style>
     :root {
       --nogi-purple: #742582;
@@ -114,7 +114,7 @@
       font-size: 16px;
       font-weight: 700;
       color: #222;
-      margin: 32px 0 16px;
+      margin: 36px 0 16px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -177,11 +177,7 @@
       transition: width 0.8s ease-in-out;
     }
 
-    .chart-row.current .chart-label {
-      color: var(--nogi-purple);
-      font-weight: 700;
-    }
-
+    .chart-row.current .chart-label,
     .chart-row.current .chart-value {
       color: var(--nogi-purple);
       font-weight: 700;
@@ -233,7 +229,7 @@
       color: var(--nogi-purple);
     }
 
-    /* 分析カード */
+    /* ポイントカード＆エピソードボックス */
     .point-card {
       background: #faf8fb;
       border-left: 4px solid var(--nogi-purple);
@@ -259,6 +255,41 @@
       margin: 0;
     }
 
+    /* 特集コンテンツカード */
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid #ebd8f0;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .feature-tag {
+      display: inline-block;
+      background: var(--nogi-purple-light);
+      color: var(--nogi-purple);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+    }
+
+    .feature-head {
+      font-weight: 700;
+      font-size: 15px;
+      color: #222;
+      margin-bottom: 6px;
+    }
+
+    .feature-body {
+      font-size: 13.5px;
+      color: #444;
+      line-height: 1.7;
+      margin: 0;
+    }
+
     /* フッター */
     .footer {
       text-align: center;
@@ -278,7 +309,7 @@
     <div class="header">
       <div class="badge">NOGIZAKA46 42nd SINGLE</div>
       <h1 class="title">『是非に及ばず』</h1>
-      <div class="subtitle">センター：一ノ瀬美空 ｜ フラゲ日売上速報</div>
+      <div class="subtitle">センター：一ノ瀬美空 ｜ フラゲ日売上速報 & 特集</div>
       <div class="gold-line"></div>
     </div>
 
@@ -396,7 +427,40 @@
         </table>
       </div>
 
-      <!-- 分析ポイント -->
+      <!-- 新セクション 1：楽曲の特徴 -->
+      <div class="section-title">楽曲『是非に及ばず』の注目ポイント</div>
+      
+      <div class="feature-card">
+        <span class="feature-tag">サウンド & 世界観</span>
+        <div class="feature-head">和の力強さと現代的ビートが融合したダンスチューン</div>
+        <p class="feature-body">タイトル「是非に及ばず（あれこれ議論するまでもない、やるしかない）」が示す通り、迷いを断ち切る強い意志を表現。和楽器の煌びやかな音色と重厚なアッパービートが混ざり合い、グループの新たな力強さを提示する一曲です。</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-tag">パフォーマンス</span>
+        <div class="feature-head">一ノ瀬美空を中心に描く、躍動感あふれるフォーメーション</div>
+        <p class="feature-body">一ノ瀬さんの圧倒的な表情変化を軸に、シンメや全員で連動するラインダンスが圧巻。可愛さと凛とした強さが同居する、夏のライブ映え間違いなしのダイナミックな構成になっています。</p>
+      </div>
+
+      <!-- 新セクション 2：一ノ瀬美空のエピソード・裏話 -->
+      <div class="section-title">初センター・一ノ瀬美空のエピソード & 裏話</div>
+
+      <div class="point-card">
+        <div class="point-head">🌸 選抜発表時の覚悟と感謝</div>
+        <div class="point-body">センターとして名前を呼ばれた瞬間、驚きとともに涙を見せつつも「大好きな乃木坂46の魅力を全身全霊で伝えたい」と強い覚悟を表明。持ち前のポジティブさと責任感が一気に花開いた瞬間でした。</div>
+      </div>
+
+      <div class="point-card">
+        <div class="point-head">🎬 MV撮影での「ギャップ」に現場絶賛</div>
+        <div class="point-body">合間にはいつも通り周りを笑顔にする和ませ役でありながら、カメラが回った瞬間に見せるキリッとした凛々しい表情のギャップに撮影スタッフからも歓声が。普段の「あざと可愛さ」との振り幅が大きな話題となっています。</div>
+      </div>
+
+      <div class="point-card">
+        <div class="point-head">💌 ファンとの絆が初動の勢いに波及</div>
+        <div class="point-body">オンラインミート＆グリートやブログ等で、ファンへの感謝を常に全力で届け続けてきたみくちゃん。今回の初センター決定に対するファンの祝福ムードと熱量が、そのままBillboard 60万枚超えというロケットスタートへ繋がっています。</div>
+      </div>
+
+      <!-- 売上分析のポイント -->
       <div class="section-title">売上分析のポイント</div>
       
       <div class="point-card">
@@ -405,12 +469,7 @@
       </div>
 
       <div class="point-card">
-        <div class="point-head">2. 一ノ瀬美空さん初センターの話題性</div>
-        <div class="point-body">5期生・一ノ瀬美空さんの初表題曲センター就任に伴う注目度が高く、店舗・EC予約・イベント需要双方の強い初動購買力に繋がっています。</div>
-      </div>
-
-      <div class="point-card">
-        <div class="point-head">3. 4作連続ハーフミリオンの盤石な基盤</div>
+        <div class="point-head">2. 4作連続ハーフミリオンの盤石な基盤</div>
         <div class="point-body">40th『歩道橋』から続くフラゲ日ハーフミリオン（Billboard基準）を今作でも達成。グループとしての盤石な人気と熱量を改めて証明する結果となりました。</div>
       </div>
 
